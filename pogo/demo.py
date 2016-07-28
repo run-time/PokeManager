@@ -164,17 +164,17 @@ def massRename(session):
 	okayToProceed = raw_input('Do you want to rename these Pokemon? (y/n): ').lower()
 	
 	# Rename the pokemon! Use randomness to reduce chance of bot detection
-	outlier = random.randint(8,12)
+	outlier = random.randint(2,4)
 	index = 0
 	if okayToProceed == 'y':
 		for monster in refinedParty:
 			index = index + 1
 			session.nicknamePokemon(monster[6],str(monster[5]) + '-' + str(monster[2]) + '/' + str(monster[3]) + '/' + str(monster[4]))
 			logging.info('Renamed ' + monster[0] + ' to ' + str(monster[5]) + '-' + str(monster[2]) + '/' + str(monster[3]) + '/' + str(monster[4]))
-			t = random.uniform(4.0, 8.0)
+			t = random.uniform(0.15, 0.25)
 			if index == outlier:
 				t = t * 2
-				outlier = random.randint(8,12)
+				outlier = random.randint(2,4)
 				index = 0
 			time.sleep(t)
 	
