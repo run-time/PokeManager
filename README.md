@@ -39,6 +39,45 @@ It does 4 things:
 
 ## How to run it
 
+#### OSX Instructions
+
+After you clone this repo, you'll want to navigate into your project.
+
+```
+$ git clone https://github.com/tsaiDavid/PokeManager.git
+$ cd PokeManager
+```
+
+Now, you'll need to install the Python dependencies using pip. If you're on OSX and haven't run pip before, please look into install Python via "Homebrew":
+
+```
+# Optional, potentially needed if first time user.
+$ brew install python; brew linkapps python;
+
+$ pip install -r requirements.txt
+
+```
+If you're denied due to permissions issues, simply run the `pip install` command mentioned above, but with a leading `sudo`.
+
+Now that you've taken care of the requirements, let's handle the changes you need to make to the `run.example.sh` you see in the repo. We'll start by duplicating the file and renaming it to `run.sh` (this can be changed at your discretion).
+
+```
+$ cp run.example.sh run.sh
+```
+
+Open your newly created `run.sh` file and replace the username, login, and location with your appropriate details, be sure to save the file. Now, let's run the script.
+
+```
+$ sh run.sh
+```
+
+##### NOTES:
+
+* If at any time you need to exit the program simply hit: <kbd>ctrl</kbd> + <kbd>c</kbd>
+* My version of this code has made a few simple changes in order to speed up the renaming process - it keeps the "randomness" of the server calls being made and each rename will range between 0.15s - 0.25s. If you're having trouble with this, please let me know.
+
+#### Original Windows Instructions
+
 Make sure you have Python and the requirements installed. If you don't have Python installed, search how to do it. **Use Version 2.7.x**. Make sure you have pip as well.
 
 To install the requirements, open a CMD window in the root folder and run:
