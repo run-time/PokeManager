@@ -262,16 +262,22 @@ def viewPokemon(session):
 	i = 0
 	print '\n NAME            | CP    | ATK | DEF | STA | IV% | MOVE 1          | MOVE 2          '
 	print '---------------- | ----- | --- | --- | --- | --- | --------------- | --------------- '
+		# Display the pokemon, with color coding for IVs and separation between types of pokemon
+	i = 0
+	print '\n NAME            | CP    | ATK | DEF | STA | IV% | MOVE 1          | MOVE 2          '
+	print '---------------- | ----- | --- | --- | --- | --- | --------------- | --------------- '
 	for monster in myParty:
 		if i > 0:
 			if myParty[i][0] != myParty[i-1][0]:
 				print '---------------- | ----- | --- | --- | --- | --- | --------------- | --------------- '
-		if monster[5] > 74:
+		if monster[5] == 100:
+			logging.info('\033[1;36;40m %-15s | %-5s | %-3s | %-3s | %-3s | %-3s | %-15s | %s \033[0m',monster[0],monster[1],monster[2],monster[3],monster[4],monster[5],monster[7],monster[8])
+		elif monster[5] > 79:
 			logging.info('\033[1;32;40m %-15s | %-5s | %-3s | %-3s | %-3s | %-3s | %-15s | %s \033[0m',monster[0],monster[1],monster[2],monster[3],monster[4],monster[5],monster[7],monster[8])
 		elif monster[5] > 49:
 			logging.info('\033[1;33;40m %-15s | %-5s | %-3s | %-3s | %-3s | %-3s | %-15s | %s \033[0m',monster[0],monster[1],monster[2],monster[3],monster[4],monster[5],monster[7],monster[8])
 		else:
-			logging.info('\033[1;37;40m %-15s | %-5s | %-3s | %-3s | %-3s | %-3s | %-15s | %s \033[0m',monster[0],monster[1],monster[2],monster[3],monster[4],monster[5],monster[7],monster[8])
+			logging.info('\033[1;90;40m %-15s | %-5s | %-3s | %-3s | %-3s | %-3s | %-15s | %s \033[0m',monster[0],monster[1],monster[2],monster[3],monster[4],monster[5],monster[7],monster[8])
 		i = i+1
 
 	mainMenu(session)
